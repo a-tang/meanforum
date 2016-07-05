@@ -1,15 +1,16 @@
 var app = angular.module('meanForum', []);
-<<<>>>>>
+app.factory('posts', [function(){
+    var o = {
+      posts: []
+    };
+    return o;
+}]);
+
 app.controller('MainCtrl', [
 '$scope',
-function($scope){
-  $scope.posts = [
-    {title: 'post 1', upvotes: 5},
-    {title: 'post 2', upvotes: 15},
-    {title: 'post 3', upvotes: 25},
-    {title: 'post 5', upvotes: 1},
-    {title: 'post 4', upvotes: 5},
-  ];
+'posts',
+function($scope, posts){
+  $scope.posts = posts.posts;
 
   $scope.addPost = function(){
     if(!$scope.title || $scope.title === '') { return; }
