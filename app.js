@@ -1,4 +1,4 @@
-var app = angular.module('meanForum', []);
+var app = angular.module('meanForum', ['ui.router']);
 app.factory('posts', [function(){
     var o = {
       posts: []
