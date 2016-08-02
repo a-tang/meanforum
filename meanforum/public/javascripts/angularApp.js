@@ -147,6 +147,7 @@ meanForum.controller('MainCtrl', [
 '$scope',
 'posts',
 function($scope, posts){
+  $scope.isLoggedIn = auth.isLoggedIn;
 	$scope.posts = posts.posts;
   $scope.addPost = function(){
     if(!$scope.title || $scope.title === '') { return; }
@@ -170,7 +171,8 @@ meanForum.controller('PostsCtrl', [
   'posts',
   'post',
   function($scope, posts, post) {
-          $scope.post = post;
+    $scope.isLoggedIn = auth.isLoggedIn;
+    $scope.post = post;
 
   $scope.addComment = function() {
     if($scope.body === '') {
